@@ -2,6 +2,7 @@
 require 'enumerator'
 
 def add_rule(tree, selectors, style)
+  return if style.nil? || style.empty?
   if selectors.empty?
     (tree[:style] ||= ';') << style
   else
