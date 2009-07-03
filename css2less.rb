@@ -27,8 +27,13 @@ tree = {}
 css = File.read(ARGV[0])
 
 css.split("\n").map { |l| l.strip }.join.gsub(/\/\*+[^\*]*\*\//, "").split(/[\{\}]/).each_slice(2) do |style|
-  selectors = style[0].split(",").map { |s| s.strip }.each do |selector|
-    add_rule(tree, selector.split(/\s+/), style[1])
+  rules = style[0]
+  if rules.include?(",") # leave multiple rules alone
+    add_rule(tree, [rules], style[1])
+  else
+    rules.split(",").map { |s| s.strip }.each do |rule|
+      add_rule(tree, rule.split(/\s+/), style[1])
+    end
   end
 end
 
