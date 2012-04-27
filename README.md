@@ -1,5 +1,4 @@
-css2less
-===
+# css2less
 
 Turns this
 
@@ -19,13 +18,19 @@ Into this
       }
     }
     
-Installation
-===
+## Installation
 
     sudo wget https://raw.github.com/sickill/css2less/master/css2less.rb -O /usr/local/bin/css2less
     sudo chmod a+x /usr/local/bin/css2less
 
-Usage
-===
+## Usage
 
     css2less style.css > style.less
+
+## License
+
+MIT
+
+## Author
+
+Marcin Kulik
